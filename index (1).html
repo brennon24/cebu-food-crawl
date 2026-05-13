@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cebu Food Crawl</title>
+  <style>
+    :root {
+      --orange: #ff6b35;
+      --orange-light: #ff8c5a;
+      --orange-dark: #e5541f;
+      --orange-pale: #fff4ef;
+      --orange-pale2: #ffe8dc;
+      --text-dark: #2c1a0e;
+      --text-mid: #5a3a22;
+      --text-light: #fff;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 16px rgba(255,107,53,0.13);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: var(--orange-pale);
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop') center/cover;
+      height: 70vh;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: var(--text-light);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      border-bottom: 4px solid var(--orange);
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ffd5c0;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background-color: var(--orange);
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(229,84,31,0.4);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      padding: 5px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffe66d;
+      border-bottom-color: #ffe66d;
+    }
+
+    section {
+      padding: 70px 10%;
+    }
+
+    section:nth-child(odd) {
+      background-color: var(--orange-pale);
+    }
+
+    section:nth-child(even) {
+      background-color: var(--orange-pale2);
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+      color: var(--orange-dark);
+      border-left: 7px solid var(--orange);
+      padding-left: 15px;
+    }
+
+    .content {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      text-align: justify;
+      max-width: 900px;
+    }
+
+    .content p + p {
+      margin-top: 12px;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--orange-pale2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(255,107,53,0.22);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      border-top: 3px solid var(--orange-pale2);
+    }
+
+    .card-content h3 {
+      margin-bottom: 8px;
+      color: var(--orange-dark);
+      font-size: 1.15rem;
+    }
+
+    .card-content p {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+    }
+
+    footer {
+      background-color: var(--orange-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #ffe8dc;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      color: #ffd5c0;
+    }
+
+    @media(max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.8rem; }
+      nav ul { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cebu Food Crawl</h1>
+    <p>From Tipid Meals to International Feasts</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#tipid">Tipid Trips</a></li>
+      <li><a href="#world">Around the World</a></li>
+      <li><a href="#trending">What's Hot on the Plate?</a></li>
+    </ul>
+  </nav>
+
+  <section id="tipid">
+    <h2 class="section-title">1. Tipid Trips!</h2>
+    <div class="content">
+      <p>Cebu proves that delicious food does not always need to be expensive. From sizzling comfort meals to classic Cebuano favorites,
+      the city is filled with affordable restaurants loved by students, workers, barkadas, and families. These food spots continue to
+      deliver unforgettable flavors while remaining budget-friendly for everyone.</p>
+      <p>Popular restaurants such as Orange Brutus, Dimsum Break, Yakski Barbecue, House of Lechon, and Ngohiong Express continue to shape
+      Cebu's affordable food culture. Whether craving burgers, barbecue, fried snacks, or Filipino comfort food, Cebu offers satisfying
+      meals that are worth every peso.</p>
+    </div>
+    <div class="food-grid">
+      <div class="card">
+        <img src="ob.png" alt="Orange Brutus">
+        <div class="card-content">
+          <h3>Orange Brutus</h3>
+          <p>Known for its iconic sizzling burger steak and nostalgic Cebuano comfort meals.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="yakski_bbq.png" alt="Yakski Barbecue">
+        <div class="card-content">
+          <h3>Yakski Barbecue</h3>
+          <p>One of Cebu's most famous barbecue spots with flavorful grilled favorites.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="dimsum.png" alt="Dimsum Break">
+        <div class="card-content">
+          <h3>Dimsum Break</h3>
+          <p>A Cebuano favorite for steamed rice, siomai, spring rolls, and late-night cravings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="world">
+    <h2 class="section-title">2. Around the World in Cebu!</h2>
+    <div class="content">
+      <p>Cebu is not only known for local delicacies but also for its wide variety of international cuisines. From Korean samgyupsal and
+      Japanese ramen to Middle Eastern shawarma and Italian pizza, the city allows food lovers to experience global flavors without
+      leaving Cebu.</p>
+      <p>Restaurants such as Angel's Pizza, Jafar's, Korean barbecue restaurants, and Chinese-inspired dining spots continue to grow in
+      popularity because of Cebuano diners' love for international food experiences. These restaurants bring together culture, flavor,
+      and modern dining trends into one exciting food scene.</p>
+    </div>
+    <div class="food-grid">
+      <div class="card">
+        <img src="angels.png" alt="Angel's Pizza">
+        <div class="card-content">
+          <h3>Angel's Pizza</h3>
+          <p>Affordable pizzas famous for their Buy 1 Take 1 promos and creative flavors.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="jafars.png" alt="Jafar's">
+        <div class="card-content">
+          <h3>Jafar's</h3>
+          <p>Middle Eastern-inspired shawarma wraps and rice meals loved by many Cebuanos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="korean_bbq.png" alt="Korean Cuisine">
+        <div class="card-content">
+          <h3>Korean Cuisine</h3>
+          <p>Samgyupsal and Korean fried chicken remain among Cebu's strongest food trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trending">
+    <h2 class="section-title">3. What's Hot on the Plate?</h2>
+    <div class="content">
+      <p>Cebu's food scene continues to evolve through viral food trends influenced by social media and online communities. Matcha drinks,
+      Biscoff desserts, Dubai chewy cookies, and Korean-inspired dishes are now some of the most talked-about foods among students and
+      young professionals.</p>
+      <p>Beyond taste, trending food culture in Cebu is also driven by aesthetics, experience, and online popularity. Whether these foods
+      are truly worth the hype or simply viral sensations, they continue to shape Cebu's exciting modern food culture.</p>
+    </div>
+    <div class="food-grid">
+      <div class="card">
+        <img src="matcha.png" alt="Matcha">
+        <div class="card-content">
+          <h3>Matcha Madness</h3>
+          <p>Matcha lattes, cheesecakes, and desserts continue to dominate café culture.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="dubai_choco.png" alt="Dubai Chewy Cookies">
+        <div class="card-content">
+          <h3>Dubai Chewy Cookies</h3>
+          <p>Thick and gooey cookies that became viral because of their luxurious appearance.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="biscoff.png" alt="Biscoff Desserts">
+        <div class="card-content">
+          <h3>Biscoff Desserts</h3>
+          <p>Cakes, donuts, and milkshakes topped with sweet caramel-flavored Biscoff cookies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Cebu Food Crawl: From Tipid Meals to International Feasts</h3>
+    <p>By Brennon Emanuel G. Tero & Chris Andrei M. Arpon</p>
+  </footer>
+
+</body>
+</html>
